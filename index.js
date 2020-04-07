@@ -93,7 +93,7 @@ const server = new GraphQLServer({ typeDefs, resolvers })
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-  server.listen().then(({ url }) => {
+  server.start(({ url }) => {
     console.log(`🚀 Server ready at ${url}`);
   });
 });
